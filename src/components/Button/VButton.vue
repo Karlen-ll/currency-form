@@ -69,7 +69,8 @@ button {
     fill: $border-color
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-color: $primary-color;
     color: $primary-color;
 

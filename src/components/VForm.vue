@@ -60,13 +60,6 @@ export default {
     VInput,
   },
 
-  props: {
-    currencies: {
-      type: Array,
-      default: () => [],
-    },
-  },
-
   watch: {
     price: function (newValue) {
       if (!isNaN(newValue)) this.total = this.amount * newValue
@@ -96,19 +89,23 @@ export default {
 
   methods: {
     onBye() {
-      this.onSubmit();
+      if (this.total > 0) {
+        this.onSubmit();
 
-      setTimeout(() => {
-        this.bye += this.total;
-      }, 1250)
+        setTimeout(() => {
+          this.bye += this.total;
+        }, 1250)
+      }
     },
 
     onSell() {
-      this.onSubmit();
+      if (this.total > 0) {
+        this.onSubmit();
 
-      setTimeout(() => {
-        this.sell += this.total;
-      }, 1250)
+        setTimeout(() => {
+          this.sell += this.total;
+        }, 1250)
+      }
     },
 
     onSubmit() {
@@ -168,11 +165,25 @@ $sell-color: #b72626;
     &--bye {
       color: white;
       background-color: $bye-color;
+
+      &:hover,
+      &:focus {
+        -webkit-box-shadow: 0 0 6px 0 fade-out($bye-color, 0.5);
+        -moz-box-shadow: 0 0 6px 0 fade-out($bye-color, 0.5);
+        box-shadow: 0 0 6px 0 fade-out($bye-color, 0.5);
+      }
     }
 
     &--sell {
       color: $sell-color;
       border-color: $sell-color;
+
+      &:hover,
+      &:focus {
+        -webkit-box-shadow: 0 0 4px 0 fade-out($sell-color, 0.5);
+        -moz-box-shadow: 0 0 4px 0 fade-out($sell-color, 0.5);
+        box-shadow: 0 0 4px 0 fade-out($sell-color, 0.5);
+      }
     }
 
     &:last-child {

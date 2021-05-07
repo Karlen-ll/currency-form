@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-form :currencies="[]" />
+    <v-form />
   </div>
 </template>
 

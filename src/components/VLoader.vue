@@ -20,7 +20,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: fade-out(#fff, 0.2);
+  background-color: fade-out($white-color, 0.2);
   position: absolute;
   z-index: 12;
 }
@@ -56,8 +56,6 @@ export default {
     &:last-child { animation-delay: 320ms; }
   }
 }
-
-
 
 @-webkit-keyframes spinner-col {
   0%,

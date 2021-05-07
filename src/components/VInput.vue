@@ -13,7 +13,7 @@
         @keydown.up="onInc"
         @keydown.down="onDec"
 
-        @keypress="isNumber($event)"
+        @keypress="isNumberKeys($event)"
     />
 
     <div class="input__style" />
@@ -102,6 +102,7 @@ export default {
     },
 
     onInc() {
+      // TODO Исправить математику JavaScript (убрать сдвиг числе на Number.EPSILON)
       this.data = this.formatting(Number.parseFloat(this.data) + this.step);
       this.$emit('input', this.data);
     },
@@ -126,7 +127,7 @@ export default {
       return value
     },
 
-    isNumber: function(event) {
+    isNumberKeys: function(event) {
       event = (event) ? event : window.event;
       const isNotFloat = event.target.value.indexOf('.') === -1;
 
@@ -162,7 +163,7 @@ export default {
   border: 0;
   text-align: right;
   background-color: transparent;
-  color: #222222;
+  color: $black-color;
   margin: 0 0.5em;
   z-index: 10;
 
