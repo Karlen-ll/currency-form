@@ -1,0 +1,32 @@
+@import '~normalize.css';
+
+html {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+// Vue animations
+.v-enter,
+.loading-enter {
+  opacity: 0;
+}
+
+.v-enter-active,
+.loading-enter-active {
+  transition: opacity 0.25s;
+}
+
+.v-leave-active,
+.loading-leave-active {
+  transition: opacity 0.25s;
+}
+
+.v-leave-to,
+.loading-leave-to {
+  opacity: 0;
+}
